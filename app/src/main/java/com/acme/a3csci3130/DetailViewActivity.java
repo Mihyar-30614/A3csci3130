@@ -17,7 +17,7 @@ public class DetailViewActivity extends Activity {
         receivedPersonInfo = (Contact)getIntent().getSerializableExtra("Contact");
 
         nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.number);
+        emailField = (EditText) findViewById(R.id.address);
 
         if(receivedPersonInfo != null){
             nameField.setText(receivedPersonInfo.name);

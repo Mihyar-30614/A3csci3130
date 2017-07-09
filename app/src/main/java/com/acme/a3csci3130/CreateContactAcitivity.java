@@ -21,9 +21,9 @@ public class CreateContactAcitivity extends Activity {
 
         submitButton  = (Button) findViewById(R.id.submitButton);
         nameField     = (EditText) findViewById(R.id.name);
-        numberField   = (EditText) findViewById(R.id.number);
+        numberField   = (EditText) findViewById(R.id.address);
         addressField  = (EditText) findViewById(R.id.address);
-        businessField = (EditText) findViewById(R.id.business);
+        businessField = (EditText) findViewById(R.id.address);
         provinceField = (EditText) findViewById(R.id.province);
     }
 
@@ -35,9 +35,9 @@ public class CreateContactAcitivity extends Activity {
         String address = addressField.getText().toString();
         String business = businessField.getText().toString();
         String province = provinceField.getText().toString();
-        Contact business = new Contact(personID, name, number, address, business,province);
+        Contact businessCard = new Contact(personID, name, number, address, business,province);
 
-        appState.firebaseReference.child(personID).setValue(business);
+        appState.firebaseReference.child(personID).setValue(businessCard);
 
         finish();
 
