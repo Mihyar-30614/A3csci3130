@@ -31,10 +31,13 @@ public class CreateContactAcitivity extends Activity {
         //each entry needs a unique ID
         String personID = appState.firebaseReference.push().getKey();
         String name = nameField.getText().toString();
-        String email = emailField.getText().toString();
-        Contact person = new Contact(personID, name, email);
+        String number = numberField.getText().toString();
+        String address = addressField.getText().toString();
+        String business = businessField.getText().toString();
+        String province = provinceField.getText().toString();
+        Contact business = new Contact(personID, name, number, address, business,province);
 
-        appState.firebaseReference.child(personID).setValue(person);
+        appState.firebaseReference.child(personID).setValue(business);
 
         finish();
 
