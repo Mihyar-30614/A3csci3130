@@ -9,7 +9,7 @@ import android.widget.EditText;
 public class CreateContactAcitivity extends Activity {
 
     private Button submitButton;
-    private EditText nameField, emailField;
+    private EditText nameField, numberField, addressField, businessField, provinceField;
     private MyApplicationData appState;
 
     @Override
@@ -19,9 +19,12 @@ public class CreateContactAcitivity extends Activity {
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
-        submitButton = (Button) findViewById(R.id.submitButton);
-        nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
+        submitButton  = (Button) findViewById(R.id.submitButton);
+        nameField     = (EditText) findViewById(R.id.name);
+        numberField   = (EditText) findViewById(R.id.number);
+        addressField  = (EditText) findViewById(R.id.address);
+        businessField = (EditText) findViewById(R.id.business);
+        provinceField = (EditText) findViewById(R.id.province);
     }
 
     public void submitInfoButton(View v) {
