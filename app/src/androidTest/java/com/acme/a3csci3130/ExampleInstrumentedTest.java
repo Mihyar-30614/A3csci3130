@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -36,9 +37,21 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.createBusiness)).perform(click());
     }
     /*
-    * Make sure the data has been saved
-    * */
-    public void readData() throws Exception{
+    Test Update Existing data
+     */
+    @Test
+    public void editData() throws Exception {
         onView(withId(R.id.listView)).perform(click());
+        onView(withId(R.id.address)).perform(clearText());
+        onView(withId(R.id.address)).perform(typeText("New Address AVE."), closeSoftKeyboard());
+        onView(withId(R.id.updateButton)).perform(click());
+    }
+    /*
+    Test Deleting data
+     */
+    @Test
+    public void deleteData() throws Exception {
+        onView(withId(R.id.listView)).perform(click());
+        onView(withId(R.id.deleteButton)).perform(click());
     }
 }
