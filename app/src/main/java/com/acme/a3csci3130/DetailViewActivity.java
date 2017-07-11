@@ -4,13 +4,19 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
+/*
+* Edit and Delete Contact User Interface Class
+* @author Mihyar Al Masalma
+* */
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, addressField, numberField, businessField, provinceField;
     private MyApplicationData appState;
     Contact receivedPersonInfo;
-
+/*
+* Create User Interface for DetailViewActivity
+* @param savedInstanceState Get the info from the interface
+* */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +29,9 @@ public class DetailViewActivity extends Activity {
         numberField   = (EditText) findViewById(R.id.number);
         businessField = (EditText) findViewById(R.id.business);
         provinceField = (EditText) findViewById(R.id.province);
-
+/*
+* Make sure that the fields are filled with info
+* */
         if(receivedPersonInfo != null){
             nameField.setText(receivedPersonInfo.name);
             addressField.setText(receivedPersonInfo.address);
@@ -32,7 +40,10 @@ public class DetailViewActivity extends Activity {
             provinceField.setText(receivedPersonInfo.province);
         }
     }
-
+/*
+* Update an existing Record based on the ID
+ * @param V The View where the info is coming from
+* */
     public void updateContact(View v){
         //TODO: Update contact funcionality
         receivedPersonInfo.name     = nameField.getText().toString();
@@ -43,7 +54,10 @@ public class DetailViewActivity extends Activity {
         appState.firebaseReference.child(receivedPersonInfo.uid).setValue(receivedPersonInfo);
         finish();
     }
-
+/*
+* Delete an existing Record based on the ID
+* @param V The View where the info is coming from
+* */
     public void eraseContact(View v)
     {
         //TODO: Erase contact functionality
