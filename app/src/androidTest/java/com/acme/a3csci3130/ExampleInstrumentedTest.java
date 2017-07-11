@@ -16,6 +16,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
+
 /**
  * Instrumentation test, which will execute on an Android device.
  *
@@ -50,6 +51,7 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.province)).perform(typeText("AB"), closeSoftKeyboard());
         onView(withId(R.id.updateButton)).perform(click());
         onView(withId(R.id.province)).check(matches(withText("AB")));
+
     }
     /*
     Test Deleting data
