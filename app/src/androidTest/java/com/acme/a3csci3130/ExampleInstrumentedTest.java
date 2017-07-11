@@ -12,7 +12,9 @@ import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -35,6 +37,8 @@ public class ExampleInstrumentedTest {
         onView(withId(R.id.business)).perform(typeText("Fisher"));
         onView(withId(R.id.province)).perform(typeText("NS"), closeSoftKeyboard());
         onView(withId(R.id.createBusiness)).perform(click());
+        onView(withId(R.id.listView)).perform(click());
+        onView(withId(R.id.name)).check(matches(withText("Mihyar Al Masalma")));
     }
     /*
     Test Update Existing data
@@ -42,9 +46,10 @@ public class ExampleInstrumentedTest {
     @Test
     public void editData() throws Exception {
         onView(withId(R.id.listView)).perform(click());
-        onView(withId(R.id.address)).perform(clearText());
-        onView(withId(R.id.address)).perform(typeText("New Address AVE."), closeSoftKeyboard());
+        onView(withId(R.id.province)).perform(clearText());
+        onView(withId(R.id.province)).perform(typeText("AB"), closeSoftKeyboard());
         onView(withId(R.id.updateButton)).perform(click());
+        onView(withId(R.id.province)).check(matches(withText("AB")));
     }
     /*
     Test Deleting data
