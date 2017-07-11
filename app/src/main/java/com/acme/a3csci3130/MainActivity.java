@@ -10,7 +10,10 @@ import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
-
+/*
+* Display the Main Screen
+* @author Mihyar Al Masalma
+* */
 public class MainActivity extends Activity {
 
 
