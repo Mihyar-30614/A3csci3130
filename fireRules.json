@@ -5,11 +5,18 @@
     "contacts": {
             "$contact": {
                 "name": {
-                    ".validate": "newData.isString() && newData.val().length < 50"
+                    ".validate": "newData.isString() && newData.val().length < 49 && newData.length > 1"
                 },
-                "email": {
-                    ".validate": "newData.isString() && newData.val().matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$/i)"
-                }
+                "number":{
+                  ".validate": "newData.isString() && newData.val().length == 9 && newData.val.matches(/^[0-9]+$/)"
+                },
+              "address":{
+                ".vaildate": "newData.isString() && newData.val().length < 50 "
+              },
+              "business" : {
+                ".validate": "newData.isString() && newData.val().matches(/Fisher|Distributor|Processor|Fish Monger/)"
+              },
+              "province": "newData.isString() && newData.val().mateches(/AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT|“ “/)"
             }
         }
   }
