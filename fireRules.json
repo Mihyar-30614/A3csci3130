@@ -5,18 +5,20 @@
     "contacts": {
             "$contact": {
                 "name": {
-                    ".validate": "newData.isString() && newData.val().length < 49 && newData.length > 1"
+                    ".validate": "newData.isString() && newData.val().length < 49 && newData.val().length > 1"
                 },
                 "number":{
-                  ".validate": "newData.isString() && newData.val().length == 9 && newData.val.matches(/^[0-9]+$/)"
+                  ".validate": "newData.isString() && newData.val().length == 9 && newData.val().matches(/^[0-9]+$/)"
                 },
-              "address":{
-                ".vaildate": "newData.isString() && newData.val().length < 50 "
-              },
-              "business" : {
-                ".validate": "newData.isString() && newData.val().matches(/Fisher|Distributor|Processor|Fish Monger/)"
-              },
-              "province": "newData.isString() && newData.val().mateches(/AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT|“ “/)"
+                "address":{
+                 ".validate": "newData.isString() && newData.val().length < 50 "
+                },
+                "business" : {
+                 ".validate": "newData.isString() && newData.val().matches(/Fisher|Distributor|Processor|Fish Monger/)"
+                },
+              "province": {
+                ".validate": "newData.isString() && newData.val().matches(/AB|BC|MB|NB|NL|NS|NT|NU|ON|PE|QC|SK|YT|“ “/)"
+              }
             }
         }
   }

@@ -11,7 +11,7 @@ import android.widget.EditText;
 * */
 public class CreateContactAcitivity extends Activity {
 
-    private Button submitButton;
+    private Button createBusiness;
     private EditText nameField, numberField, addressField, businessField, provinceField;
     private MyApplicationData appState;
 /*
@@ -25,7 +25,7 @@ public class CreateContactAcitivity extends Activity {
         //Get the app wide shared variables
         appState = ((MyApplicationData) getApplicationContext());
 
-        submitButton  = (Button) findViewById(R.id.submitButton);
+        createBusiness  = (Button) findViewById(R.id.createBusiness);
         nameField     = (EditText) findViewById(R.id.name);
         numberField   = (EditText) findViewById(R.id.number);
         addressField  = (EditText) findViewById(R.id.address);

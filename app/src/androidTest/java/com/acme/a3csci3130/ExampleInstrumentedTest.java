@@ -1,13 +1,17 @@
 package com.acme.a3csci3130;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
+import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static android.support.test.espresso.action.ViewActions.typeText;
+import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -16,11 +20,25 @@ import static org.junit.Assert.*;
  */
 @RunWith(AndroidJUnit4.class)
 public class ExampleInstrumentedTest {
+    @Rule
+    public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
     @Test
-    public void useAppContext() throws Exception {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getTargetContext();
-
-        assertEquals("com.acme.a3csci3130", appContext.getPackageName());
+    /*
+    * Test data input and save
+    * */
+    public void createBusinessContact() throws Exception {
+        onView(withId(R.id.newBusiness)).perform(click());
+        onView(withId(R.id.name)).perform(typeText("Mihyar Al Masalma"));
+        onView(withId(R.id.number)).perform(typeText("123456789"));
+        onView(withId(R.id.address)).perform(typeText("6221 Coburg Rd."));
+        onView(withId(R.id.business)).perform(typeText("Fisher"));
+        onView(withId(R.id.province)).perform(typeText("NS"), closeSoftKeyboard());
+        onView(withId(R.id.createBusiness)).perform(click());
+    }
+    /*
+    * Make sure the data has been saved
+    * */
+    public void readData() throws Exception{
+        onView(withId(R.id.listView)).perform(click());
     }
 }
