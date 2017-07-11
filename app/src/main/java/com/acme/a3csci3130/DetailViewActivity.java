@@ -25,7 +25,7 @@ public class DetailViewActivity extends Activity {
         appState = ((MyApplicationData) getApplicationContext());
 
         nameField     = (EditText) findViewById(R.id.name);
-        addressField  = (EditText) findViewById(R.id.business);
+        addressField  = (EditText) findViewById(R.id.address);
         numberField   = (EditText) findViewById(R.id.number);
         businessField = (EditText) findViewById(R.id.business);
         provinceField = (EditText) findViewById(R.id.province);
